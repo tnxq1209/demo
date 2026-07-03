@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(
+                135deg,
+                #5BCEFA,
+                #F5A9B8,
+                #FFFFFF,
+                #F5A9B8,
+                #5BCEFA
+            );
+            background-size: 400% 400%;
+            animation: gradientFlow 10s ease infinite;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3), transparent 35%);
+            animation: glowMove 8s ease-in-out infinite alternate;
+        }
+
+        h1 {
+            position: relative;
+            color: #8A2BE2;
+            font-size: clamp(4rem, 10vw, 8rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-shadow:
+                0 0 10px #b266ff,
+                0 0 20px #b266ff,
+                0 0 40px #8A2BE2,
+                0 0 80px #8A2BE2;
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow:
+                    0 0 10px #b266ff,
+                    0 0 20px #b266ff,
+                    0 0 40px #8A2BE2,
+                    0 0 80px #8A2BE2;
+            }
+            50% {
+                transform: scale(1.05);
+                text-shadow:
+                    0 0 20px #d6a4ff,
+                    0 0 40px #c77dff,
+                    0 0 70px #a64dff,
+                    0 0 120px #8A2BE2;
+            }
+        }
+
+        @keyframes glowMove {
+            from {
+                transform: translate(-5%, -5%);
+            }
+            to {
+                transform: translate(5%, 5%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+</body>
+</html>
